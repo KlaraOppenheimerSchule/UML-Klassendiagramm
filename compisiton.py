@@ -16,10 +16,10 @@ class spieler():
 class strasse():
      
     #constructor
-    def __init__(self, strassenname, miete):
+    def __init__(self, strassenname, miete, spieler):
         self.__strassenname = strassenname
         self.__miete = miete
-        self.__besitzer = [spieler] = NONE
+        self.__besitzer = spieler
     
     #getBesitzer
     def getBesitzer(self):
@@ -28,28 +28,13 @@ class strasse():
         else:
             return self.__besitzer.getName()
     
-    
-    #addBesitzer
-    def addBesitzer(self, besitzer):
-        self.__besitzer = besitzer
-        
-      
-    #Remove Besitzer      
-    def removeBesitzer(self):
-        self.__besitzer = NONE
 
 # Test   
 sp1 = spieler('Max', 100.00)
-st1 = strasse('Badstrasse',1000.00)
+st1 = strasse('Badstrasse',1000.00, sp1)
 
-# Besitzer hinzufügen
-st1.addBesitzer(sp1)
 
 # Besitzer ausgeben lassen
 print(st1.getBesitzer())
 
-# Besitzer entfernen
-st1.removeBesitzer()
 
-# Besitzer ausgeben lassen
-print(st1.getBesitzer())
