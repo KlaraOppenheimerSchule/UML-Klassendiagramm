@@ -17,24 +17,25 @@ class strasse():
      
     #constructor
     def __init__(self, strassenname, miete, spieler):
-        self.__strassenname = strassenname
-        self.__miete = miete
-        self.__besitzer = spieler
+        if spieler == None:
+            return None
+
+        else:
+            self.__strassenname = strassenname
+            self.__miete = miete
+            self.__besitzer = spieler
     
     #getBesitzer
     def getBesitzer(self):
-        if self.__besitzer is NONE:
-            return 'Die Strasse hat keinen Besitzer'
-        else:
-            return self.__besitzer.getName()
+        return self.__besitzer.getName()
     
 
 # Test   
 sp1 = spieler('Max', 100.00)
 st1 = strasse('Badstrasse',1000.00, sp1)
+st2 = strasse('Badstrasse',1000.00, None)
 
 
 # Besitzer ausgeben lassen
 print(st1.getBesitzer())
-
-
+print(st2.getBesitzer())
