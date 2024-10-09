@@ -17,13 +17,15 @@ class strasse():
      
     #constructor
     def __init__(self, strassenname, miete, spieler):
-        if spieler == None:
-            return None
+        if not spieler:
+            raise ValueError("Objekterstellung nicht erlaubt.")
+            print("Objekt wird nicht erzeugt!")
 
         else:
             self.__strassenname = strassenname
             self.__miete = miete
             self.__besitzer = spieler
+            print("Objekt wird erzeugt!")
     
     #getBesitzer
     def getBesitzer(self):
@@ -32,10 +34,14 @@ class strasse():
 
 # Test   
 sp1 = spieler('Max', 100.00)
-st1 = strasse('Badstrasse',1000.00, sp1)
-st2 = strasse('Badstrasse',1000.00, None)
 
 
-# Besitzer ausgeben lassen
-print(st1.getBesitzer())
-print(st2.getBesitzer())
+try:
+    st1 = strasse('Badstrasse',1000.00, sp1)
+    st2 = strasse('Badstrasse',1000.00, None)
+except ValueError as e:
+    print(e)
+
+
+
+
